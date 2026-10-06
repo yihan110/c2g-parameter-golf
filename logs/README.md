@@ -21,6 +21,17 @@ logs/seed999.log
 
 每个日志应含：`val_bpb`、`final_int8_zlib_roundtrip_exact val_bpb`、artifact 字节、train_time、step_avg、seed、PyTorch 版本。
 
+## 免费单卡跑法生成的日志（见根 README + `AI_STUDIO_部署指南.md`）
+
+用 `bash ruanyihan_C2G_run_single_gpu.sh`（飞桨 AI Studio）跑完后，日志自动落在：
+
+```
+logs/baseline/seed42.log   logs/baseline/seed314.log   logs/baseline/seed999.log
+logs/improved/seed42.log   logs/improved/seed314.log   logs/improved/seed999.log
+```
+
+这些是**真实可复现**的成绩记录（单卡 + 固定预算），把最终 `val_bpb` 回填到 `submission.json` 即可。
+
 ## 诚实声明
 
-本仓库**不包含伪造的训练日志**。`baseline_reference_train.log` 为官方基线真实日志；3 个定稿 seed 日志需由你在真实 8×H100 上按 README 命令复跑后填入，回填 `submission.json` 的真实 `val_bpb`。
+本仓库**不包含伪造的训练日志**。`baseline_reference_train.log` 为官方基线真实日志；定稿 seed 日志需由你在真实 GPU 上按 README / AI Studio 指南复跑后填入。

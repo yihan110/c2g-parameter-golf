@@ -101,6 +101,17 @@ SEED=42 torchrun --standalone --nproc_per_node=8 ruanyihan_C2G_train_gpt.py
 
 成绩取 **≥3 个独立 seed** 的均值 ± 标准差（如 seed=42/314/999），并按要求与基线做显著性检验（详见 `方案设计.md`）。
 
+## 免费跑法（飞桨 AI Studio，单卡，不翻墙）
+
+> 没有 8×H100 / 不想花钱？用 **百度飞桨 AI Studio** 的免费 GPU 算力卡也能跑出**真实、可复现**的成绩记录（覆盖课程"成绩达成 + 有分数记录 + 边际提升"），详见 **`AI_STUDIO_部署指南.md`**。
+
+```bash
+# 在 AI Studio 终端（装好依赖、下好数据后）
+bash ruanyihan_C2G_run_single_gpu.sh        # 基线 + 改进 × 3 seed，自动落日志
+```
+
+> 免费单卡绝对 BPB 会高于官方 1.2244，但"基线 vs 改进"的差是真实边际提升信号；冲 Level 2（<1.18）仍需 8×H100（课程 $25 券 或 AutoDL）。
+
 ---
 
 ## 16MB 合规与评分
