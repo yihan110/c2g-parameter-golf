@@ -1,0 +1,12 @@
+# C2G parameter golf - ruanyihan
+# 在国内可直连环境安装（AutoDL / 学校集群）
+torch>=2.3
+numpy
+sentencepiece
+tqdm
+brotli            # Level-2 更好压率可选（基线用内置 zlib 也合规）
+# 可选，H100 上明显加速 attention：
+# flash-attn
+# 数据下载依赖（用于 data/cached_challenge_fineweb.py）：
+huggingface-hub
+datasets

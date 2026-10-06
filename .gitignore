@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# 训练产物（过大，不入库；由脚本在运行目录生成）
+final_model.pt
+final_model.int8.ptz
+logs/*.txt
+!logs/README.md
+!logs/baseline_reference_train.log
+
+# 数据（需自行下载，见 data/README.md）
+data/datasets/
+data/tokenizers/
+
+# 系统
+.DS_Store
+Thumbs.db

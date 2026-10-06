@@ -1,0 +1,35 @@
+{
+  "author": "ruanyihan",
+  "github_id": "yihan110",
+  "name": "SP8192 + LeakyReLU2 + QK-Gain5 + MuonEq-R + WD + EMA (Level-2)",
+  "date": "2026-10-06",
+  "track": "10min_16mb",
+  "target_level": "Level 2 (BPB < 1.18)",
+  "val_bpb": 1.2244,
+  "val_bpb_note": "REFERENCE placeholder. 1.2244 is the OpenAI Naive Baseline (reproduced). Final Level-2 val_bpb must be backfilled after a real 8xH100 run (>=3 seeds). Code + commands to reproduce are in this repo.",
+  "val_bpb_std": null,
+  "seeds": [42, 314, 999],
+  "seed_results": {
+    "42":   {"val_bpb": null, "artifact_bytes": null, "status": "pending_real_run"},
+    "314":  {"val_bpb": null, "artifact_bytes": null, "status": "pending_real_run"},
+    "999":  {"val_bpb": null, "artifact_bytes": null, "status": "pending_real_run"}
+  },
+  "hardware": "8xH100 80GB SXM (to run; local has no GPU)",
+  "pytorch_version": ">=2.3",
+  "technique_summary": "SP8192 tokenizer + LeakyReLU(0.5)^2 MLP + QK-Gain 5.0 + MuonEq-R + weight decay 0.04 + EMA 0.99 export, on the OpenAI train_gpt.py scaffold",
+  "baseline_reference": {
+    "name": "OpenAI Naive Baseline",
+    "val_bpb": 1.2243657,
+    "bytes_total": 15863489,
+    "source": "records/track_10min_16mb/2026-03-17_NaiveBaseline"
+  },
+  "compliance_plan": {
+    "train_under_600s": true,
+    "artifact_under_16mb": true,
+    "eval_under_600s": true,
+    "no_network_during_eval": true,
+    "domestic_sources_only": true,
+    "three_seeds": true,
+    "stat_significance_vs_baseline": "welch_t_p<0.01"
+  }
+}
